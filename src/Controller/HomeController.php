@@ -20,6 +20,12 @@ class HomeController extends AbstractController
         return $this->render('home/dataviz.html.twig');
     }
 
+    #[Route('/dataviz/page', name: 'dataviz_page')]
+    public function datavizPage(): Response
+    {
+        return $this->render('home/dataviz_page.html.twig');
+    }
+
     #[Route('/about', name: 'about')]
     public function about(): Response
     {
