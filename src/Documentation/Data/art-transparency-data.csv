@@ -1,4 +1,4 @@
-role,starting_salary,starting_salary_hr_yr,year_starting_salary,ending_salary,ending_salary_hr_yr,Hourly(H)_Permanent(P)_Contingent(C),year_ending_salary,years_experience,gender,ethnicity,degrees_required
+role,startingSalary,contractStartingSalary,yearStartingSalary,endingSalary,contractEndingSalary,typeContract,yearEndingSalary,yearsExperience,gender,ethnicity,degreesRequired
 Curator,50000,yr,1999,175000,yr,P,2019,35,male,white,PhD
 Designer,35000,yr,2018,38000,yr,P,2019,2,female,,BA required MA preferred
 other,46000,yr,2015,55000,yr,P,2019,4,,,BA required MA preferred
