@@ -20,11 +20,6 @@ class User
     private $id;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
-     */
-    private $yearsExperience;
-
-    /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $gender;
@@ -45,6 +40,11 @@ class User
     private $otherSourcesIncome;
 
     /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $yearsExperience;
+
+    /**
      * @ORM\OneToMany(targetEntity=Job::class, mappedBy="user")
      */
     private $jobs;
@@ -57,18 +57,6 @@ class User
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getYearsExperience(): ?int
-    {
-        return $this->yearsExperience;
-    }
-
-    public function setYearsExperience(?int $yearsExperience): self
-    {
-        $this->yearsExperience = $yearsExperience;
-
-        return $this;
     }
 
     public function getGender(): ?string
@@ -115,6 +103,18 @@ class User
     public function setOtherSourcesIncome(?string $otherSourcesIncome): self
     {
         $this->otherSourcesIncome = $otherSourcesIncome;
+
+        return $this;
+    }
+
+    public function getYearsExperience(): ?int
+    {
+        return $this->yearsExperience;
+    }
+
+    public function setYearsExperience(?int $yearsExperience): self
+    {
+        $this->yearsExperience = $yearsExperience;
 
         return $this;
     }

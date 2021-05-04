@@ -28,7 +28,7 @@ class Job
     private $role;
 
     /**
-     * @ORM\Column(type="float", nullable=true)
+     * @ORM\Column(type="decimal", precision=10, scale=2, nullable=true)
      */
     private $startingSalary;
 
@@ -38,9 +38,14 @@ class Job
     private $yearStartingSalary;
 
     /**
-     * @ORM\Column(type="float", nullable=true)
+     * @ORM\Column(type="decimal", precision=10, scale=2, nullable=true)
      */
     private $endingSalary;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $yearEndingSalary;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -48,14 +53,14 @@ class Job
     private $typeContract;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
-     */
-    private $yearsExperience;
-
-    /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $degreesRequired;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $yearsExperience;
 
     /**
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="jobs")
@@ -91,12 +96,12 @@ class Job
         return $this;
     }
 
-    public function getStartingSalary(): ?float
+    public function getStartingSalary(): ?string
     {
         return $this->startingSalary;
     }
 
-    public function setStartingSalary(?float $startingSalary): self
+    public function setStartingSalary(?string $startingSalary): self
     {
         $this->startingSalary = $startingSalary;
 
@@ -115,14 +120,26 @@ class Job
         return $this;
     }
 
-    public function getEndingSalary(): ?float
+    public function getEndingSalary(): ?string
     {
         return $this->endingSalary;
     }
 
-    public function setEndingSalary(?float $endingSalary): self
+    public function setEndingSalary(?string $endingSalary): self
     {
         $this->endingSalary = $endingSalary;
+
+        return $this;
+    }
+
+    public function getYearEndingSalary(): ?int
+    {
+        return $this->yearEndingSalary;
+    }
+
+    public function setYearEndingSalary(?int $yearEndingSalary): self
+    {
+        $this->yearEndingSalary = $yearEndingSalary;
 
         return $this;
     }
@@ -139,18 +156,6 @@ class Job
         return $this;
     }
 
-    public function getYearsExperience(): ?int
-    {
-        return $this->yearsExperience;
-    }
-
-    public function setYearsExperience(?int $yearsExperience): self
-    {
-        $this->yearsExperience = $yearsExperience;
-
-        return $this;
-    }
-
     public function getDegreesRequired(): ?string
     {
         return $this->degreesRequired;
@@ -159,6 +164,18 @@ class Job
     public function setDegreesRequired(?string $degreesRequired): self
     {
         $this->degreesRequired = $degreesRequired;
+
+        return $this;
+    }
+
+    public function getYearsExperience(): ?int
+    {
+        return $this->yearsExperience;
+    }
+
+    public function setYearsExperience(?int $yearsExperience): self
+    {
+        $this->yearsExperience = $yearsExperience;
 
         return $this;
     }

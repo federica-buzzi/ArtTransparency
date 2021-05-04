@@ -23,7 +23,7 @@ class UserJob
     private $role;
 
     /**
-     * @ORM\Column(type="float", nullable=true)
+     * @ORM\Column(type="decimal", precision=10, scale=2, nullable=true)
      */
     private $startingSalary;
 
@@ -38,7 +38,7 @@ class UserJob
     private $yearStartingSalary;
 
     /**
-     * @ORM\Column(type="float", nullable=true)
+     * @ORM\Column(type="decimal", precision=10, scale=2, nullable=true)
      */
     private $endingSalary;
 
@@ -94,12 +94,12 @@ class UserJob
         return $this;
     }
 
-    public function getStartingSalary(): ?float
+    public function getStartingSalary(): ?string
     {
         return $this->startingSalary;
     }
 
-    public function setStartingSalary(?float $startingSalary): self
+    public function setStartingSalary(?string $startingSalary): self
     {
         $this->startingSalary = $startingSalary;
 
@@ -130,12 +130,12 @@ class UserJob
         return $this;
     }
 
-    public function getEndingSalary(): ?float
+    public function getEndingSalary(): ?string
     {
         return $this->endingSalary;
     }
 
-    public function setEndingSalary(?float $endingSalary): self
+    public function setEndingSalary(?string $endingSalary): self
     {
         $this->endingSalary = $endingSalary;
 
