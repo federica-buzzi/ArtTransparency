@@ -7,7 +7,7 @@ use Doctrine\Persistence\ObjectManager;
 use League\Csv\Reader;
 use App\Entity\UserJob;
 
-class ImporterCSVFixtures extends Fixture
+class UserJobFixtures extends Fixture
 {
     public function load(ObjectManager $manager)
     {

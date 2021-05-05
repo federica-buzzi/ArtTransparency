@@ -37,4 +37,11 @@ class HomeController extends AbstractController
     {
         return $this->render('home/form.html.twig');
     }
+
+    // #[Route('/form/job', name: 'formjob')]
+    // public function jobform(): Response
+    // {
+    //     return $this->render('home/job_form.html.twig');
+    // }
+
 }
