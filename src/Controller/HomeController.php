@@ -2,7 +2,10 @@
 
 namespace App\Controller;
 
+use App\Form\UserType;
+use App\Entity\User; 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -33,15 +36,28 @@ class HomeController extends AbstractController
     }
 
     #[Route('/form', name: 'form')]
-    public function form(): Response
+    public function userForm(Request $req)
     {
-        return $this->render('home/form.html.twig');
+        $user = new User(); 
+        $userForm = $this->createForm(UserType::class, $user,['action'=> $this->generateUrl("form"), 'method'=> 'POST']);
+        $userForm->handleRequest($req); 
+        if($userForm->isSubmitted() && $userForm->isValid()){
+            return $this->render ('home/display_data.html.twig', ['user'=> $user]);
+        }
+        else{
+            return $this->render('home/user_form.html.twig', ['userForm'=> $userForm-> createView()]); 
+        }
     }
 
-    // #[Route('/form/job', name: 'formjob')]
-    // public function jobform(): Response
+
+
+
+    // public function jobForm(): Response
     // {
-    //     return $this->render('home/job_form.html.twig');
+    //     $jobForm = $this->createForm(JobType::class);
+    //     $vars = ['myJobForm' => $jobForm->createView()];
+    //     return $this->render('home/user_form.html.twig', $vars);
     // }
 
+   
 }
